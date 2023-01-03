@@ -12,7 +12,7 @@ function initializeWidget() {
         var lastName = data.data[0].Last_Name;
         var email = data.data[0].Email;
         var phone = data.data[0].Phone;
-        var regOrgName = data.data[0].Account_Name;
+        var regOrgName = data.data[0].Company;
         var f = document.createElement("iframe");
         f.src = `https://zfrmz.com/BknPlM3TBcsWtDn6Y4lN?firstName=${firstName}&lastName=${lastName}&email=${email}&phone=${phone}&regOrgName=${regOrgName}`;
         f.style.border = "none";
