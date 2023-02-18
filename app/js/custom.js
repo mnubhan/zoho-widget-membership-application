@@ -13,8 +13,31 @@ function initializeWidget() {
         var email = data.data[0].Email;
         var phone = data.data[0].Phone;
         var regOrgName = data.data[0].Company;
+        var street = data.data[0].Mailing_Street;
+        var city = data.data[0].Mailing_City;
+        var state = data.data[0].Mailing_State;
+        var postcode = data.data[0].Mailing_Zip;
+        var country = data.data[0].Mailing_Country;
+        var title = data.data[0].Title;
         var f = document.createElement("iframe");
-        f.src = `https://zfrmz.com/BknPlM3TBcsWtDn6Y4lN?firstName=${firstName}&lastName=${lastName}&email=${email}&phone=${phone}&regOrgName=${regOrgName}`;
+        var placeholder = (value) => (value ? value : "");
+        var dataString = `firstName=${placeholder(
+          firstName
+        )}&lastName=${placeholder(lastName)}&bilContactName=${placeholder(
+          firstName + " " + lastName
+        )}&email=${placeholder(email)}&bilContactEmail=${placeholder(
+          email
+        )}&phone=${placeholder(phone)}&regOrgName=${placeholder(
+          regOrgName
+        )}&street=${placeholder(street)}&city=${placeholder(
+          city
+        )}&state=${placeholder(state)}&postcode=${placeholder(
+          postcode
+        )}&country=${placeholder(country)}&bilContactDesignation=${placeholder(
+          title
+        )}`;
+        var url = `https://zfrmz.com/BknPlM3TBcsWtDn6Y4lN?${dataString}`;
+        f.src = url;
         f.style.border = "none";
         f.style.height = "100%";
         f.style.width = "100%";
