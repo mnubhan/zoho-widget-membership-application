@@ -19,6 +19,8 @@ function initializeWidget() {
         var postcode = data.data[0].Mailing_Zip;
         var country = data.data[0].Mailing_Country;
         var title = data.data[0].Title;
+        var branch = data.data[0].Branch;
+
         var f = document.createElement("iframe");
         var placeholder = (value) => (value ? value : "");
         var dataString = `firstName=${placeholder(
@@ -35,7 +37,7 @@ function initializeWidget() {
           postcode
         )}&country=${placeholder(country)}&bilContactDesignation=${placeholder(
           title
-        )}`;
+        )}&branch=${placeholder(branch)}`;
         var url = `https://zfrmz.com/BknPlM3TBcsWtDn6Y4lN?${dataString}`;
         f.src = url;
         f.style.border = "none";
